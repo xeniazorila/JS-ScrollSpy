@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Banana Bread</title>
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+  
+<body>
+
+<header>
+  <nav>
+    <a href="#acasa">Acasă</a>
+    <a href="#ingrediente">Ingrediente</a>
+    <a href="#despre">Despre noi</a>
+    <a href="#contacte">Contacte</a>
+  </nav>
+</header>
+
+<main>
+  <section id="acasa">
+    <h2>Bine ai venit!</h2>
+        <p>Dragi cititori, astăzi am pregătit un chec de banane sau cum i se mai spune BANANA BREAD. Acesta provine din bucătăria Americană și are la bază banane răscoapte. Este un chec care se pregătește destul de repede și are un miros plăcut. Eu am pus în checul meu cu banane – caise și nuci. Dumneavoastră puteți folosi orice altceva doriți de exemplu: mac, nucă de cocos, ciocolată, fulgi de ovăz, stafide ș.a. Acest chec îl puteți savura la micul dejun sau chiar la o ceașcă de ceai în oricare oră a zilei. Sper să vă placă varianta mea de BANANA BREAD cu pepene galben uscat și migdale. Vă doresc o zi cât mai gustoasă și poftă bună.</p>
+    <img src="https://www.marthastewart.com/thmb/1dIq-Ds5zBaQ70zBzbVepDCUpuQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/MSL-312772-the-best-banana-bread-horiz-0723-886961edbbbe4aa59a839b6a24dc1dbb.jpg" alt="Banana bread proaspăt scos din cuptor">
+  </section>
+
+  <section id="ingrediente">
+    <h2>Ingrediente</h2>
+    <ul>
+      <li>3 banane mari (răscoapte) (500–650 gr.)</li>
+      <li>1, ¾ cană – făină albă (350 gr.)</li>
+      <li>¾ cană – zahăr (175 gr.)</li>
+      <li>2 linguri cu vârf – smântână (80 gr.)</li>
+      <li>2 ouă</li>
+      <li>100 gr. – unt topit</li>
+      <li>1 linguriță - praf de copt</li>
+      <li>1 pachețel – praf de vanilie sau 1 linguriță – esență de vanilie</li>
+      <li>1 linguriță – bicarbonat de sodiu</li>
+      <li>150 gr. – fructe uscate</li>
+      <li>100 gr. – migdale, nuci, semințe</li>
+    </ul>
+    <h2>Pentru decor</h2>
+    <ul>
+        <li>1 banană tăiată în două pe orizontală</li>
+        <li>fulgi de migdale</li>
+    </ul>
+    <img src="https://natashaskitchen.com/wp-content/uploads/2019/12/banana-bread-pins.jpg" alt="Ingrediente pentru banana bread">
+  </section>
+
+  <section id="despre">
+    <h2>Despre noi</h2>
+    <p>Încă de mică eram pasionată de emisiuni, poze și discuții culinare. Vroiam să gătesc, însă mama îmi spunea „Nu trebuie, o să reușești să gătești când vei crește mare”. În clasa a 8-a, împreună cu două prietene am filmat o emisiune culinară în care am gătit un tort delicios (îmi pare rău că am pierdut filmarea). Acum 3 ani am început să experimentez, să gătesc mai des și să fotografiez bucatele din unghiuri neobișnuite și sunt convinsă că primesc un rezultat original.</p>
+    <p> Am început să încarc poze culinare pe Instagram, acolo am primit primele aprecieri și primele rugăminți de a mă împărți cu rețete. Am înțeles că pentru a crește am nevoie să interacționez cu lumea pe rețele de socializare și de a propune variantele mele de rețete și poze. Astfel, la îndemnarea logodnicului meu, părinților și prietenilor, am fondat blogul „Valerie’s Food” la data de 10 mai 2015. Acest proiect este o parte din mine. Vreau să demonstrez că nu este greu să gătești și că mâncarea facută acasă este cea mai gustoasă.
+
+        Cei care mă inspiră sunt: Jamie Oliver, Gordon Ramsay, Nigella Lawson, Laura Vitale și alți bucătari.</p>
+        <img src="https://img.freepik.com/free-photo/front-view-female-confectioner-white-wear-holding-delicious-pastries-light-pink-wall-confectionery-sweet-pastry-job-work_140725-35267.jpg?ga=GA1.1.2003902754.1747154839&semt=ais_hybrid&w=740">
+  </section>
+
+  <section id="contacte">
+    <h2>Contacte</h2>
+    <p>Ai întrebări sau sugestii? Completează formularul de mai jos și îți vom răspunde cât mai curând!</p>
+
+    <form onsubmit="submitForm(event)">
+      <input type="text" name="nume" placeholder="Numele tău" required />
+      <input type="email" name="email" placeholder="Adresa de email" required />
+      <textarea name="mesaj" placeholder="Mesajul tău" rows="5" required></textarea>
+      <button type="submit">Trimite</button>
+    </form>
+    <p id="status" style="margin-top:10px;color:green;"></p>
+    
+  </section>
+</main>
+
+<script>
+  // ScrollSpy logic
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll("nav a");
+
+  window.addEventListener("scroll", () => {
+    let current = "";
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 80;
+      if (pageYOffset >= sectionTop) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+      if (link.getAttribute("href").includes(current)) {
+        link.classList.add("active");
+      }
+    });
+  });
+
+  // Simulare trimitere formular (frontend only)
+  function submitForm(e) {
+    e.preventDefault();
+    document.getElementById("status").textContent = "Mulțumim! Mesajul tău a fost trimis.";
+    e.target.reset();
+  }
+</script>
+
+</body>
+</html>
